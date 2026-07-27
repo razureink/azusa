@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azusa Test</title>
+<style>
+  body { font-family: sans-serif; padding: 24px; }
+  button, a { display: block; margin: 12px 0; padding: 10px; font-size: 16px; }
+</style>
+</head>
+<body>
+  <h2>Azusa Hijack Test</h2>
+
+  <button onclick="alert('native onclick')">onclick button (blocked)</button>
+
+  <button id="jsListener">addEventListener button (blocked)</button>
+
+  <button data-azusa-action="toast" data-azusa-data="Hello from data attributes">data-azusa button (toast)</button>
+
+  <a href="https://example.com">Regular link (navigate)</a>
+
+  <button data-azusa-action="log" data-azusa-data="Button clicked via log">Log button</button>
+
+  <button data-azusa-action="finish">Finish button</button>
+
+  <button data-azusa-action="toast" data-azusa-data="Another toast!">Another toast</button>
+
+  <script>
+    document.getElementById('jsListener').addEventListener('click', function() {
+      alert('addEventListener click');
+    });
+  </script>
+</body>
+</html>
